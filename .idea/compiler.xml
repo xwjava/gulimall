@@ -13,11 +13,13 @@
         <module name="gulimall-ums" />
         <module name="gulimall-sms" />
         <module name="gulimall-oms" />
+        <module name="guli-generator" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="guli-generator" options="-parameters" />
       <module name="gulimall-admin" options="-parameters" />
       <module name="gulimall-oms" options="-parameters" />
       <module name="gulimall-pms" options="-parameters" />
