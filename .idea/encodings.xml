@@ -2,8 +2,9 @@
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/guli-generator" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/guli-generator" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gulimall-admin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gulimall-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gulimall-geteway" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gulimall-oms" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gulimall-pms" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gulimall-sms" charset="UTF-8" />
