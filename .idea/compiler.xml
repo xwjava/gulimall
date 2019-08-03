@@ -12,9 +12,9 @@
         <module name="gulimall-wms" />
         <module name="gulimall-ums" />
         <module name="gulimall-sms" />
+        <module name="gulimall-gateway" />
         <module name="gulimall-oms" />
         <module name="gulimall-pms" />
-        <module name="gulimall-gateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

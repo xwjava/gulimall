@@ -33,6 +33,16 @@ public class SpuInfoController {
     @Autowired
     private SpuInfoService spuInfoService;
 
+    @ApiOperation("按照spuid,spuname,分类id检索商品")
+    @GetMapping("/simple/search")
+    public Resp<Object> querySpuInfoPage(
+            QueryCondition queryCondition,
+            @RequestParam(value = "catId",defaultValue = "0") Long catId){
+        PageVo page = spuInfoService.queryPageByCatId(queryCondition ,catId);
+        return Resp.ok(page);
+    }
+
+
     /**
      * 列表
      */

@@ -27,4 +27,10 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
         return new PageVo(page);
     }
 
+    @Override
+    public PageVo queryPageByCatId(QueryCondition queryCondition, Long catId) {
+
+        return null;
+    }
+
 }

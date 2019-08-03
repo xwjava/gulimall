@@ -1,18 +1,64 @@
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#      - id: after_route #定义第一种路由规则
+#        uri: http://example.org # 满足predicates指定的所有条件以后就来到uri指定的地方
+#        predicates:
+#        - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+#        filters:
+#          - 过滤器的名=值
+#
+#          - StripPrefix=2 #简单过滤器
+#          - name: Retry #过滤器名
+#            args: #过滤器定制的参数值
+#              retries: 3 #
+#              statuses: BAD_GATEWAY
+
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#      - id: world-route
+#        uri: lb://gulimall-pms
+#        predicates:
+#          -Path=/world
+#      - id: hello_route
+#        uri: lb://gulimall-oms
+#        predicates:
+#          -Path=/hello
+#        filters:
+#          - AddResponseHeader=leifengyang,666
+
+server:
+  port: 88
+
 spring:
   cloud:
     gateway:
       routes:
-      - id: after_route #定义第一种路由规则
-        uri: http://example.org # 满足predicates指定的所有条件以后就来到uri指定的地方
-        predicates:
-        - After=2017-01-20T17:42:47.789-07:00[America/Denver]
-        filters:
-          - 过滤器的名=值
+       - id: pms_route
+         uri: lb://gulimall-pms
+         predicates:
+           - Path=/pms/**
 
-          - StripPrefix=2 #简单过滤器
-          - name: Retry #过滤器名
-            args: #过滤器定制的参数值
-              retries: 3 #
-              statuses: BAD_GATEWAY
+       - id: gulimall-oms_route
+         uri: lb://gulimall-oms
+         predicates:
+           - Path=/oms/**
+       - id: gulimall-sms_route
+         uri: lb://gulimall-sms
+         predicates:
+           - Path=/sms/**
+
+       - id: gulimall-ums_route
+         uri: lb://gulimall-sms
+         predicates:
+           - Path=/usm/**
+       - id: gulimall-wms_route
+         uri: lb://gulimall-wms
+         predicates:
+           - Path=/wms/**
+
 
 
