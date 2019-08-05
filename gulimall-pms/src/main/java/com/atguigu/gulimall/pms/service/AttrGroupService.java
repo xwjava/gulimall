@@ -16,5 +16,9 @@ import com.atguigu.gulimall.commons.bean.QueryCondition;
 public interface AttrGroupService extends IService<AttrGroupEntity> {
 
     PageVo queryPage(QueryCondition params);
+
+    AttrGroupEntity getGroupInfoByAttrId(Long attrId);
+
+    PageVo queryPageAttrGroupsByCatId(QueryCondition queryCondition, Long catId);
 }
 

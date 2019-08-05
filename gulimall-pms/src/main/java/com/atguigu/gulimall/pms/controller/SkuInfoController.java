@@ -1,12 +1,16 @@
 package com.atguigu.gulimall.pms.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
 import com.atguigu.gulimall.commons.bean.PageVo;
 import com.atguigu.gulimall.commons.bean.QueryCondition;
 import com.atguigu.gulimall.commons.bean.Resp;
+import com.atguigu.gulimall.pms.service.SpuInfoService;
+import com.atguigu.gulimall.pms.vo.SpuAllSaveVo;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +36,20 @@ import com.atguigu.gulimall.pms.service.SkuInfoService;
 public class SkuInfoController {
     @Autowired
     private SkuInfoService skuInfoService;
+
+
+
+
+    ///pms/skuinfo/list/spu/{spuId}
+    @ApiOperation("根据商品的id（spuId）查出所有的sku信息")
+    @GetMapping("/list/spu/{spuId}")
+    public Resp<List<SkuInfoEntity>> spuSkuInfo(@PathVariable("spuId")Long spuId){
+
+        List<SkuInfoEntity> skus = skuInfoService.list(new QueryWrapper<SkuInfoEntity>().eq("spu_id", spuId));
+
+        return Resp.ok(skus);
+    }
+
 
     /**
      * 列表
@@ -64,8 +82,10 @@ public class SkuInfoController {
     @ApiOperation("保存")
     @PostMapping("/save")
     @PreAuthorize("hasAuthority('pms:skuinfo:save')")
-    public Resp<Object> save(@RequestBody SkuInfoEntity skuInfo){
+    public Resp<Object> save(@RequestBody SkuInfoEntity  skuInfo){
 		skuInfoService.save(skuInfo);
+
+
 
         return Resp.ok(null);
     }
